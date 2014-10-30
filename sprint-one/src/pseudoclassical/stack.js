@@ -25,5 +25,5 @@ Stack.prototype.size = function(){
   return this.counter;
 };
 
-var Test = new MakeStack();
+var Test = new Stack();
 

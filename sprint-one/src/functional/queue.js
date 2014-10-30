@@ -4,38 +4,55 @@ var makeQueue = function(){
   // Use an object with numeric keys to store values
   var storage = {};
   var counter = 0;
-  var startItem = "start";
-  var lastItem = "end";
+
 
 
   // Implement the methods below
 
   someInstance.enqueue = function(value){
 
-    someInstance[counter] = value;
+    storage[counter] = value;
     counter += 1;
-    lastItem
+
   };
 
   someInstance.dequeue = function(){
 
     var results = [];
-    var keyArray = Object.keys(someInstance).sort(function(a, b) {return a - b;});
-
-
-
+    var keyArray = Object.keys(storage).sort(function(a, b) {return a - b;});
     var firstKey = keyArray[0];
-    results.push(someInstance[firstKey]);
-    delete someInstance[firstKey];
-    counter -= 1;
-
+    results.push(storage[firstKey]);
+    delete storage[firstKey];
     return results[0];
   };
 
   someInstance.size = function(){
 
-    return Math.max(counter, 0);
+    return Object.keys(storage).length;
   };
 
   return someInstance;
 };
+
+
+// var makeQueue = function() {
+//   var storage = {};
+//   var queueStart = 0;
+//   var queueEnd = 0;
+//   var Queue = {};
+//   Queue.enqueue = function(value){
+//     storage[queueEnd] = value;
+//     queueEnd++;
+//   }
+//   Queue.dequeue = function() {
+//     if (! storage[queueStart]) { console.log('EMPTY LINE'); return}
+//     var luckyturn = storage[queueStart];
+//     delete storage[queueStart];
+//     queueStart++;
+//     return luckyturn;
+//   }
+//   Queue.size = function() {
+//     return queueEnd - queueStart;
+//   }
+//   return Queue;
+// }

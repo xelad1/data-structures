@@ -31,6 +31,8 @@ treeMethods.contains = function(target){
   //console.log((this.children[0]).value +'index');
   if((this.children[0]).value === target){
     return true;
+  } else {
+    return false;
   }
 
 };

@@ -22,21 +22,41 @@ var treeMethods = {};
 treeMethods.addChild = function(value){
   this.children = this.children || [];
   this.children.push(makeTree(value));
-
+  console.log(this.children);
 
 };
+
+// treeMethods.contains = function(target){
+//   //console.log(this.children);
+//   //console.log((this.children[0]).value +'index');
+//   if((this.children[0]).value === target){
+//     return true;
+//   } else {
+//     return false;
+//   }
+
+
+
+// };
+
+
 
 treeMethods.contains = function(target){
-  //console.log(this.children);
-  //console.log((this.children[0]).value +'index');
-  if((this.children[0]).value === target){
-    return true;
-  } else {
-    return false;
-  }
+// find if tree contains target
+// first get root node:
+//    if root node value = target, return true and you're done
+    var root = this.children;
+    if(this.children[0].value === target){
+      return true;
+    } else if(!root.children){
+      return false;
+    }
+    console.log(root);
+    debugger;
+// if no root children, return false
+// otherwise there are root children, recursively check children and compare value
 
 };
-
 
 
 

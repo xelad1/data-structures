@@ -1,12 +1,12 @@
 var Graph = function(){
-  this._superStorage = {};
+  //this._superStorage = {};
 
 };
 
 Graph.prototype.addNode = function(newNode, toNode){
 
-  this._superStorage[newNode] = {edgesArray:[toNode]};
-  this._superStorage[toNode].edgesArray.push(newNode);
+  // this._superStorage[newNode] = {edgesArray:[toNode]};
+  // this._superStorage[toNode].edgesArray.push(newNode);
 };
 
 Graph.prototype.contains = function(node){

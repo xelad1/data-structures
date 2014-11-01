@@ -22,69 +22,20 @@ var treeMethods = {};
 treeMethods.addChild = function(value){
   this.children = this.children || [];
   this.children.push(makeTree(value));
-  console.log(this.children);
-
 };
-
-// treeMethods.contains = function(target){
-//   //console.log(this.children);
-//   //console.log((this.children[0]).value +'index');
-//   if((this.children[0]).value === target){
-//     return true;
-//   } else {
-//     return false;
-//   }
-
-
-
-// };
-
-
 
 treeMethods.contains = function(target){
-// find if tree contains target
-// first get root node:
-//    if root node value = target, return true and you're done
-    var root = this.children;
-    if(this.children[0].value === target){
+
+if(this.value === target) {
+  return true;
+} else if(!this.children || this.children.length === 0) {
+  return false;
+} else {
+  for(var i = 0; i < this.children.length; i ++) {
+    if(this.children[i].contains(target)){
       return true;
-    } else if(!root.children){
-      return false;
     }
-    console.log(root);
-    debugger;
-// if no root children, return false
-// otherwise there are root children, recursively check children and compare value
-
+  }
+}
+return false;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// console.log(this.children);
-  // if(5===target){
-  //   return true;}
-
-  //var startTree = ??
-  //for(var i=0; i<startTree.length; i++){
-  //   if(startTree[i]==target){
-  //     return true;
-  //   } else if(startTree.children){
-  //     (startTree.children).contains(target);
-  //   } else {
-   //    return false;}
-
-
-/*
- * Complexity: What is the time complexity of the above functions?
- */

@@ -1,8 +1,9 @@
 var makeBinarySearchTree = function(value){
   var newBinaryTree = {};
   newBinaryTree.value = value;
-  newBinaryTree.children = undefined;
-  extend(newBinaryTree, binarybinaryTreemethods);
+  newBinaryTree.left = null;
+  newBinaryTree.right = null;
+  extend(newBinaryTree, binaryTreemethods);
   return newBinaryTree;
   };
 
@@ -16,27 +17,27 @@ var extend = function(to, from) {
 
 var binaryTreemethods = {};
 
-binaryTreemethods.addChild = function(value){
-  this.children = this.children || [];
-  this.children.push(makeBinarySearchTree(value));
-  console.log(this.children);
-
+binaryTreemethods.insert = function(value){
+// if there is no node
+var newNode=makeBinarySearchTree(value);
+var stalin = value;
+if(newNode.value<this.value){
+  this.left=newNode;
+  //case 1: if newNode.left=null && newNode.value<this.value;
+} else if(newNode.value>this.value){
+  this.right=newNode;
+}
+ }
+  //create new node passing in value
+// if there is a node
+  // check if value  > node.value
+    // value.right
+  // else if value < node.value
+     // value.left = true;
+//
 };
 
 binaryTreemethods.contains = function(target){
-// find if tree contains target
-// first get root node:
-//    if root node value = target, return true and you're done
-    var root = this.children;
-    if(this.children[0].value === target){
-      return true;
-    } else if(!root.children){
-      return false;
-    }
-    console.log(root);
-    debugger;
-// if no root children, return false
-// otherwise there are root children, recursively check children and compare value
 
 };
 
@@ -44,6 +45,21 @@ binaryTreemethods.depthFirstLog = function(func){
 
 };
 
+// var makeNode = function(value){
+//   var node = {};
+//   node.value = value;
+//   node.left = null;
+//   node.right = null;
+
+//   return node;
+// }
+
+
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
+/* makeBinaryTree(5): value=5; left=null; right = null;
+ makeBinaryTree(3): if 3<5
+ makeBinaryTree(2): if2<3 && 2<5
+ makeBinaryTree(1)L if1<2 && 1<3 && 1<5 
